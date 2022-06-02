@@ -8,9 +8,9 @@ $(function () {
         },
     });
 
+ 
 
-
-    // 初始化用户信息
+    // 初始化获取用户信息
     const initUserInfo = () => {
         $.ajax({
             type: "GET",

@@ -62,6 +62,7 @@ $("#form_login").submit((e) => {
       type: "POST",
       url: "/api/login",
       //serialize（）出来的是键值对的形式，name="username"&&name="password"
+      // 该方法的调用者应该是某个表单对象
       data: $("#form_login").serialize(),
       success: (res) => {
           if (res.status !== 0) return layer.msg(res.message);

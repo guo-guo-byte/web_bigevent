@@ -41,18 +41,24 @@ const renderAvatar = (user) => {
 
 // 退出登录
 $("#btnLogout").click(() => {
-    // 点击后弹出框显示是否退出登录，index相当于索引  可以写可以不写
+    // 点击后弹出框显示是否退出登录，index相当于索引，把每一次弹框作为索引，退出之后就要关闭掉，可以写可以不写
     layui.layer.confirm(
         "确定退出登录？",
         { icon: 3, title: "" },
+        // 用户点击了确定按钮 下面的回调也会进行
         function (index) {
             // 清空本地存储里面的 token 
             localStorage.removeItem("token");
             // 重新跳转到登录页面
             location.href = "/login.html";
             //这里相当于定时器在把index关闭
-            // layui.layer.close(index)
+            layui.layer.close(index)
         }
     );
 });
 getUserInfo()
+// 高亮文章列表，layui-this是高亮颜色改变，下面的不显示 
+// next（）意思是
+function change(){
+    $('#change').attr('class','layui-this').next().attr('class','')
+}

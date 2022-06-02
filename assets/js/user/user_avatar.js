@@ -19,11 +19,14 @@ $('#btnChooseImage').on('click', function() {
 
   //1.4为文件上传框绑定 change 事件
   $("#file").change((e) => {
-    //   e.target触碰
+    //   e.target触碰 e事件中有一个target。下面还有一个files属性，是代表用户选择多少个文件，并通过索引拿过来，代表伪数组
+    //e 获取用户选择的文件
       const fileList = e.target.files.length;
+      console.log(fileList);
+    //   如果等于0那就是用户没有选择照片，就直接结束
       if (fileList === 0) return layer.msg("请选择文件！");
   
-      // 1. 拿到用户选择的文件
+      // 1. 拿到用户选择第一个文件
       let file = e.target.files[0];
       // 2. 将文件，转化为路径
       var imgURL = URL.createObjectURL(file);
